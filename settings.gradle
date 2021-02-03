@@ -1,2 +1,2 @@
 rootProject.name = 'wgc-frontend-test'
-include('app')
+include('lib')
