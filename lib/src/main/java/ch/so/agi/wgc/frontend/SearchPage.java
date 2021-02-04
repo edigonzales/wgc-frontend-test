@@ -26,8 +26,6 @@ public class SearchPage {
 
         var expectedState = new Page.WaitForSelectorOptions().withState(ATTACHED);
         page.waitForSelector(locator_results, expectedState);
-        
-        
     }
 
     public void clearSearchBar(){
@@ -58,7 +56,8 @@ public class SearchPage {
 //                "}");
 //        System.out.println(dimensions);
         
-        page.evaluate("() => alert(map)");
-        
+//        page.evaluate("() => alert(map)");
+        Object foo = page.evaluate("() => {return Map}");
+        System.out.println(foo);
     }
 }
