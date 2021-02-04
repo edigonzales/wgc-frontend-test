@@ -9,9 +9,7 @@ import static org.testng.Assert.*;
 public class SearchTests extends BaseTests {
 
     @Test
-    public void searchForExactTitle() throws InterruptedException {
-        System.out.println("Hallo Welt.");
-        
+    public void searchForExactTitle() throws InterruptedException {        
         Thread.sleep(2000); // TODO: delete
         
         String searchText = "Controlling";
