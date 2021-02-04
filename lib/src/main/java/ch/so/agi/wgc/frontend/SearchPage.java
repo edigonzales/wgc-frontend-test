@@ -12,12 +12,10 @@ public class SearchPage {
 
     private Page page;
 
-    private String locator_searchBar = "#searchBar";
-    private String locator_hiddenBooks = "li.ui-screen-hidden";
-    private String locator_visibleBooks = "li:not(.ui-screen-hidden)";
-    private String locator_visibleBookTitles = "li:not(.ui-screen-hidden) h2";
-
-
+    private String locator_searchBar = "[placeholder=\"Search place or add map...\"]";
+    private String locator_results = ".searchbox-results";
+    private String locator_resultLabel = ".searchbox-result-label";
+    
     public SearchPage(Page page){
         this.page = page;
     }
@@ -27,24 +25,40 @@ public class SearchPage {
         page.fill(locator_searchBar, query);
 
         var expectedState = new Page.WaitForSelectorOptions().withState(ATTACHED);
-        page.waitForSelector(locator_hiddenBooks,expectedState);
+        page.waitForSelector(locator_results, expectedState);
+        
+        
     }
 
     public void clearSearchBar(){
         page.fill(locator_searchBar, "");
 
         var expectedState = new Page.WaitForSelectorOptions().withState(DETACHED);
-        page.waitForSelector(locator_hiddenBooks,expectedState);
+        page.waitForSelector(locator_results, expectedState);
     }
 
-    public int getNumberOfVisibleBooks(){
-       return page.querySelectorAll(locator_visibleBooks).size();
+    public int getNumberOfControllingLayers(){
+       return page.querySelectorAll(locator_resultLabel).size();
     }
 
-    public List<String> getVisibleBooks(){
-        return page.querySelectorAll(locator_visibleBookTitles)
+    public List<String> getControllingLayers(){
+        return page.querySelectorAll(locator_resultLabel)
                 .stream()
                 .map(e -> e.innerText())
                 .collect(Collectors.toList());
+    }
+    
+    public void evaluateJs() {
+//        Object dimensions = page.evaluate("() => {\n" +
+//                "  return {\n" +
+//                "      width: document.documentElement.clientWidth,\n" +
+//                "      height: document.documentElement.clientHeight,\n" +
+//                "      deviceScaleFactor: window.devicePixelRatio\n" +
+//                "  }\n" +
+//                "}");
+//        System.out.println(dimensions);
+        
+        page.evaluate("() => alert(map)");
+        
     }
 }

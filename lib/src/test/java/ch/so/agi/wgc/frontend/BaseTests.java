@@ -20,7 +20,7 @@ public class BaseTests {
 
         //A single browser tab
         Page page = browser.newPage();
-        page.navigate("https://automationbookstore.dev/");
+        page.navigate("https://geo.so.ch/map/");
         searchPage = new SearchPage(page);
     }
 

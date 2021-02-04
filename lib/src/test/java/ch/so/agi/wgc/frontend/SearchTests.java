@@ -12,27 +12,22 @@ public class SearchTests extends BaseTests {
     public void searchForExactTitle() throws InterruptedException {
         System.out.println("Hallo Welt.");
         
-        Thread.sleep(10000);
+        Thread.sleep(2000); // TODO: delete
         
-//        String title = "Agile Testing";
-//        searchPage.search(title);
-//        assertEquals(searchPage.getNumberOfVisibleBooks(), 1, "Number of visible books");
-//        assertTrue(searchPage.getVisibleBooks().contains(title), "Title of visible book");
+        String searchText = "Controlling";
+        searchPage.search(searchText);
+        
+        Thread.sleep(2000); // TODO: delete
+
+        assertEquals(searchPage.getNumberOfControllingLayers(), 3, "Number of found layers.");
+        assertTrue(searchPage.getControllingLayers().contains("Controlling AV-Mutationen"));
+        assertTrue(searchPage.getControllingLayers().contains("Controlling AVGBS-Vollzugsmeldungen"));
+        assertTrue(searchPage.getControllingLayers().contains("Controlling AV-Validierung"));
      }
 
-//    @Test
-//    public void searchForPartialTitle(){
-//        searchPage.search("Test");
-//
-//        List<String> expectedBooks = List.of(
-//                "Test Automation in the Real World",
-//                "Experiences of Test Automation",
-//                "Agile Testing",
-//                "How Google Tests Software",
-//                "Java For Testers"
-//        );
-//
-//         assertEquals(searchPage.getNumberOfVisibleBooks(), expectedBooks.size(), "Number of visible books");
-//         assertEquals(searchPage.getVisibleBooks(), expectedBooks,"Titles of visible books");
-//     }
+    //@Test
+    public void javascriptEvaluation() {
+        searchPage.evaluateJs();
+    }
+   
 }
