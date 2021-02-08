@@ -6,11 +6,10 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTests {
 
-    private Browser browser;
-    protected SearchPage searchPage;
+    protected Browser browser;
 
     @BeforeClass
-    public void setUp(){
+    public void setUp() {
 
         //Open a browser (supports Chromium (Chrome, Edge), Firefox, and Webkit (Safari))
         browser = Playwright
@@ -18,10 +17,6 @@ public class BaseTests {
                 .chromium()
                 .launch(new BrowserType.LaunchOptions().withHeadless(false));
 
-        //A single browser tab
-        Page page = browser.newPage();
-        page.navigate("https://geo.so.ch/map/");
-        searchPage = new SearchPage(page);
     }
 
     @AfterClass

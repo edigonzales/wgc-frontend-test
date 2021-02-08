@@ -16,7 +16,7 @@ public class SearchPage {
     private String locator_results = ".searchbox-results";
     private String locator_resultLabel = ".searchbox-result-label";
     
-    public SearchPage(Page page){
+    public SearchPage(Page page) {
         this.page = page;
     }
 
