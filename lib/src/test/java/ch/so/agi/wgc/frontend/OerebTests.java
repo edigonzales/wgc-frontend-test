@@ -34,7 +34,8 @@ public class OerebTests {
 //        var expectedState = new Page.WaitForSelectorOptions().withState(ATTACHED);
 //        page.waitForSelector(".background-layer-item-active", expectedState);
         
-        page.waitForLoadState();
+        page.waitForLoadState(Page.LoadState.NETWORKIDLE); // network idle for 500ms
+//        page.waitForTimeout(5000);        
         
         oerebPage = new OerebPage(page);
         
