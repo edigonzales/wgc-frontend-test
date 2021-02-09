@@ -47,8 +47,13 @@ public class OerebTests {
     }
     
     @Test 
-    public void pdfOk() throws InterruptedException {
-        //Thread.sleep(2000);
+    public void htmlOk() throws InterruptedException {
+        
+        Thread.sleep(2000);
+        
+        oerebPage.triggerHtmlExtract();
+        
+        Thread.sleep(1000);
         
         
     }
