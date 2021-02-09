@@ -25,10 +25,10 @@ public class OerebTests {
                 .chromium()
                 .launch(new BrowserType.LaunchOptions().withHeadless(false));
 
-        BrowserContext context = browser.newContext(new Browser.NewContextOptions().withViewport(900, 600));
+        BrowserContext context = browser.newContext(new Browser.NewContextOptions().withViewport(1200, 900));
 
         Page page = context.newPage();
-        page.navigate("https://geo.so.ch/map/?c=2600576%2C1215500&s=1000");  
+        page.navigate("https://geo.so.ch/map/?c=2600576%2C1215520&s=1000");  
         
         // TODO: Wann weiss ich robust, ob die Karte ready ist?
 //        var expectedState = new Page.WaitForSelectorOptions().withState(ATTACHED);
